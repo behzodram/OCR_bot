@@ -51,14 +51,11 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 # /share buyrug'i
 async def share(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [InlineKeyboardButton("Copy Bot Username", url=f"https://t.me/{BOT_USERNAME.strip('@')}")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
-        "Bot username’ini nusxa olish uchun tugmani bosing:",
-        reply_markup=reply_markup
+        f"Bot username’i:\n{BOT_USERNAME}\n\n"
+        "Username’ni nusxa olish uchun shu matnni tanlab copy qiling."
     )
+
 
 # Rasmni qabul qilish va Tesseract OCR
 async def photo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
