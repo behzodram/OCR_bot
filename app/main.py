@@ -36,6 +36,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Bot foydalanuvchilari soni: {len(users)}")
 
+# /help buyrug'i
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    help_text = (
+        "Bot quyidagi buyruqlarni qo‘llab-quvvatlaydi:\n\n"
+        "/start - Botni ishga tushirish va matn ajratish uchun tayyorlash\n"
+        "/stats - Bot foydalanuvchilari sonini ko‘rish\n"
+        "/help - Bu yordam oynasini ko‘rish"
+    )
+    await update.message.reply_text(help_text)
+
 # Rasmni qabul qilish va Tesseract OCR
 async def photo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     photo_file = await update.message.photo[-1].get_file()
@@ -55,7 +65,8 @@ async def photo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == "__main__":
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("stats", stats))  # <-- Qo'shildi
+    app.add_handler(CommandHandler("stats", stats))
+    app.add_handler(CommandHandler("help", help_command))  # <-- Qo'shildi
     app.add_handler(MessageHandler(filters.PHOTO, photo_handler))
 
     print("Bot ishga tushdi...")
