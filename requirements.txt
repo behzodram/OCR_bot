@@ -1,3 +1,2 @@
-python-telegram-bot==20.5
-easyocr
-Pillow
+python-telegram-bot 
+pillow
