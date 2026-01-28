@@ -1,9 +1,9 @@
 import logging
-from telegram import Update
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from PIL import Image
 import pytesseract
-from config import BOT_TOKEN
+from config import BOT_TOKEN, BOT_USERNAME
 import io
 import json
 import os
@@ -21,6 +21,8 @@ if os.path.exists(USERS_FILE):
 else:
     users = set()
 
+# Bot username (bu yerga sizning bot username kiradi, @ bilan)
+
 # /start buyrug'i
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.message.from_user.id
@@ -30,7 +32,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(USERS_FILE, "w") as f:
         json.dump(list(users), f)
 
-    await update.message.reply_text("Salom! Rasmingizni yuboring, men undagi matnni ajratib beraman. \n\n/help buyrug'ini yozib, yordamni ko'rishingiz mumkin.")
+    await update.message.reply_text("Salom! Rasmingizni yuboring, men undagi matnni ajratib beraman.\n\n/help buyrug'ini yozib, yordam olishingiz mumkin.")
 
 # /stats buyrug'i
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -42,9 +44,21 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Bot quyidagi buyruqlarni qo‘llab-quvvatlaydi:\n\n"
         "/start - Botni ishga tushirish va matn ajratish uchun tayyorlash\n"
         "/stats - Bot foydalanuvchilari sonini ko‘rish\n"
+        "/share - Bot username’ini nusxa olish\n"
         "/help - Bu yordam oynasini ko‘rish"
     )
     await update.message.reply_text(help_text)
+
+# /share buyrug'i
+async def share(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [
+        [InlineKeyboardButton("Copy Bot Username", url=f"https://t.me/{BOT_USERNAME.strip('@')}")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text(
+        "Bot username’ini nusxa olish uchun tugmani bosing:",
+        reply_markup=reply_markup
+    )
 
 # Rasmni qabul qilish va Tesseract OCR
 async def photo_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -66,7 +80,8 @@ if __name__ == "__main__":
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("stats", stats))
-    app.add_handler(CommandHandler("help", help_command))  # <-- Qo'shildi
+    app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(CommandHandler("share", share))  # <-- Qo'shildi
     app.add_handler(MessageHandler(filters.PHOTO, photo_handler))
 
     print("Bot ishga tushdi...")
