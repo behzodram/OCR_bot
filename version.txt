@@ -1,4 +1,5 @@
 version 1.0.x
+version 1.0.9 main.py 2ga bo'lindi va commands.py added
 version 1.0.8 /share qayta kodlandi
 version 1.0.7 /share qo'shildi
 version 1.0.6 /start da /help qo'shildi
