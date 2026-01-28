@@ -30,7 +30,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(USERS_FILE, "w") as f:
         json.dump(list(users), f)
 
-    await update.message.reply_text("Salom! Rasmingizni yuboring, men undagi matnni ajratib beraman.")
+    await update.message.reply_text("Salom! Rasmingizni yuboring, men undagi matnni ajratib beraman. \n\n/help buyrug'ini yozib, yordamni ko'rishingiz mumkin.")
 
 # /stats buyrug'i
 async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
