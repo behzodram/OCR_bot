@@ -1,2 +1,4 @@
-version 1.0.3
+version 1.0.x
+version 1.0.5 /help ham yozildi
 version 1.0.4 foydalanuvchi /stats qo'shilmoqda
+version 1.0.3
