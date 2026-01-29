@@ -23,7 +23,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         json.dump(list(users), f)
 
     await update.message.reply_text(
-        "Salom! Rasmingizni yuboring, men undagi matnni ajratib beraman.\n\n"
+        "Assalom! Rasmingizni yuboring, men undagi matnni ajratib beraman.\n\n"
         "/help buyrug'ini yozib, yordam olishingiz mumkin."
     )
 
