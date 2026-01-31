@@ -1,9 +1,1 @@
-v version 1.0.1 => main: version push cmd to version.txt
-version 1.0.x
-version 1.0.9 main.py 2ga bo'lindi va commands.py added
-version 1.0.8 /share qayta kodlandi
-version 1.0.7 /share qo'shildi
-version 1.0.6 /start da /help qo'shildi
-version 1.0.5 /help ham yozildi
-version 1.0.4 foydalanuvchi /stats qo'shilmoqda
-version 1.0.3
+v 1.0.0 => main: version push cmd to version.txt
