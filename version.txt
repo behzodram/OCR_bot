@@ -1,3 +1,4 @@
+v 1.0.3 => main: Go back OLD code
 v 1.0.2 => main: Guruhli OCR
 v 1.0.1 => main: LMOD
 v 1.0.0 => main: version push cmd to version.txt
