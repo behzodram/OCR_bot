@@ -48,3 +48,11 @@ async def share(update: Update, context: ContextTypes.DEFAULT_TYPE, BOT_USERNAME
         f"Bot username’i:\n{BOT_USERNAME}\n\n"
         "Username’ni nusxa olish uchun shu matnni tanlab copy qiling."
     )
+
+# donate komandasi
+async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "Agar siz botni qo'llab-quvvatlamoqchi bo'lsangiz, quyidagi havolani ishlatishingiz mumkin:\n\n"
+        "https://app.rhmt.uz/a5576b5e-7dd2-11f0-b568-005056805427\n\n"
+        "Rahmat!"
+    )

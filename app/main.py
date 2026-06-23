@@ -7,7 +7,7 @@ from config import BOT_TOKEN, BOT_USERNAME
 import io
 
 # Commands fayldan import qilamiz
-from commands import start, stats, help_command, share
+from commands import donate, start, stats, help_command, share
 
 # Logger
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -37,6 +37,7 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler("help", help_command))
     # share uchun lambda orqali BOT_USERNAME beriladi
     app.add_handler(CommandHandler("share", lambda u, c: share(u, c, BOT_USERNAME)))
+    app.add_handler(CommandHandler("donate", donate))
 
     # Rasm handler
     app.add_handler(MessageHandler(filters.PHOTO, photo_handler))
