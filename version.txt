@@ -1,3 +1,4 @@
+v 1.0.5 => main: Donate cmd added. help edit
 v 1.0.4 => main: Donate cmd added.
 v 1.0.3 => main: Go back OLD code
 v 1.0.2 => main: Guruhli OCR

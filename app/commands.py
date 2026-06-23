@@ -39,6 +39,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/stats - Bot foydalanuvchilari sonini ko‘rish\n"
         "/share - Bot username’ini nusxa olish\n"
         "/help - Bu yordam oynasini ko‘rish"
+        "/donate - Botni qo‘llab-quvvatlash uchun havola"
     )
     await update.message.reply_text(help_text)
 
